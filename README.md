@@ -177,7 +177,9 @@ Rebuild the models, measurements and graphs:
 ## Credits
 
 - Pose model: Google MediaPipe (Apache 2.0). Machine recogniser: Google SigLIP (Apache 2.0).
-- Training data for the posture classifiers, and the demo video shown in the screenshot:
+- Training data for the posture classifiers:
   [Exercise-Correction](https://github.com/NgoQuocBao1010/Exercise-Correction) by Ngo Hong Quoc Bao (MIT).
+- The result screenshot contains one frame of a third-party lat pulldown animation, shown only to
+  illustrate the app's output. The animation belongs to its owner.
 - Evaluation photos: Wikimedia Commons contributors (not included in this repository).
 - Built with the help of Claude Code (Anthropic).
