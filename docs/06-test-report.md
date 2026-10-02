@@ -11,7 +11,8 @@ server running at `http://localhost:8000`.
 | Rejecting non-gym photos | 22 of 24 rejected | Low: small test set |
 | Rule engine logic | 18 of 18 automatic tests pass | High for the logic |
 | Real videos, 4 free exercises | Runs end to end, finds real faults | Medium: one person, not checked by a trainer |
-| Real videos, 9 machine exercises | **Not tested on real video** | None yet |
+| Internet clips: leg press, bench press, lat pulldown (7 videos) | 3 good, 1 correct refusal, 3 wrong (section 3b) | Medium: shows where it works and where it fails |
+| Real videos, 6 other machine exercises | **Not tested on real video** | None yet |
 | Posture classifiers | 0.93-0.996 F1, split by clip | Low for new people (see doc 3) |
 | Web server and API | All routes and error cases behave correctly | High |
 | Web page | 3 of 6 screens checked by screenshot | Medium |
@@ -102,9 +103,42 @@ What we cannot say:
   are not an independent test of those models.
 - No trainer has judged whether the reported problems are the right ones.
 
-## 4. Machine exercises (lat pulldown, rows, presses, leg machines, pushdown)
+## 3b. Ten unseen files from the internet (added later the same day)
 
-**Not tested on real video.** No openly licensed videos of these were available. They share the same
+2 product photos, 7 exercise videos and 1 animated drawing, sent through the running app. The files are
+other people's property (stock previews, social-media clips) and are not kept in this repository.
+
+**Machine recognition** (the 2 photos and one frame from each video): first guess exactly right for 6 of 10
+(pec deck, bench press, lat pulldown, leg press three times). One reasonable (an incline dumbbell bench,
+which the catalogue does not have, called "bench press"). Three wrong first guesses with the right machine
+second or third: a plate-loaded chest press called "bench press", and a cable machine called "lat pulldown"
+and "seated cable row".
+
+**Form check:**
+
+| Video | Scored as | Result | Verdict |
+|---|---|---|---|
+| Leg press, clean side view, 27 s | Leg press | 4 reps, 100, knee 170 to 69 degrees | Plausible |
+| Incline dumbbell press, side view, 24 s | Bench press | 3 reps, 100 | Count verified by eye (3 full reps, 4th unfinished) |
+| Leg press tutorial, wrong then right, 19 s | Leg press | 77; "right" half 100 and 100; "wrong" half 52 and 95 | Partly right: locked knees not reported, a video cut counted as a rep (38) |
+| Leg press close-up, knees out of frame | Leg press | "Could not find a full repetition" | Correct refusal |
+| Bench press labelled "bad form", filmed from behind the head | Bench press | 4 reps, 100 | Miss |
+| Lat pulldown 3D animation, from behind | Lat pulldown | 1 rep, 89, "bar not pulled low enough" | False alarm; pose landmarks wrong on a drawn figure; confidence wrongly "high" |
+| Standing straight-arm cable pulldown | Lat pulldown | 6 reps, 45, two wrong problems | Wrong advice: exercise not in the catalogue |
+
+**Tasks these examples create:**
+
+1. Detect a scene cut (a sudden jump in every landmark) and do not count across it.
+2. Lower the confidence label when the view is from behind or when landmark positions are implausible.
+3. Check that the movement matches the chosen exercise (for example, a lat pulldown must bend the elbow
+   past 120 degrees) and say "this does not look like a lat pulldown" instead of scoring it.
+4. Add the knee lock-out problem to the report when it appears in any rep of a leg press.
+5. Add straight-arm pulldown and incline dumbbell press to the catalogue.
+6. Accept that some faults (bar path, elbow flare, bouncing) need a second camera angle or a trained model.
+
+## 4. Machine exercises still untested (seated row, chest press, shoulder press, leg extension, leg curl, pushdown)
+
+**Not tested on real video.** No videos of these were available. They share the same
 engine as the tested exercises, and their logic is covered by the stick-figure tests, but:
 
 - machines can hide body parts from the camera (weight stacks, pads, the leg-press sled),
@@ -154,7 +188,7 @@ tested separately. **Please click through these once.**
 ## 7. Known problems and limits
 
 1. Thresholds are not validated by a trainer. (Most important.)
-2. Machine exercises are untested on real video.
+2. Six machine exercises are untested on real video; the others are tested on very few clips (section 3b).
 3. Side view is required for most checks. Front view gives a low-confidence result.
 4. One person in the picture. If someone walks behind, tracking can jump to them.
 5. Knee-inwards is only checked from the front; back rounding is not detected at all (the pose model

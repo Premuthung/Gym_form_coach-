@@ -41,7 +41,65 @@ flowchart LR
 
 No large language model is used or trained. Everything is free and open source, and runs on a CPU.
 
-## Results
+## Tried on real gym photos and videos
+
+Ten files the app had never seen: 2 product photos of machines, 7 exercise videos and 1 animated
+drawing, collected from the internet. Each went through the running app exactly as a user would
+send it. These are the results as they came out, including the wrong ones.
+
+*The files themselves are not in this repository because they belong to other people (stock-video
+previews and social-media clips). They were used only for local testing.*
+
+### Step 1 - "Which machine is this?"
+
+Photos, plus one frame taken from each video.
+
+| What the picture shows | App's first guess | Other guesses shown | Verdict |
+|---|---|---|---|
+| Pec deck machine (product photo) | **Pec deck 94%** | shoulder press, chest press | Right |
+| Barbell bench press, person lifting | **Bench press 97%** | chest press, squat rack | Right |
+| Lat pulldown, 3D animation from behind | **Lat pulldown 93%** | seated row, cable machine | Right |
+| Leg press, side view | **Leg press 99%** | leg extension, leg curl | Right |
+| Leg press, close-up of the upper body | **Leg press 90%** | leg extension, leg curl | Right |
+| Leg press, filmed from above | **Leg press 76%** | leg curl, leg extension | Right |
+| Dumbbell press on an incline bench | Bench press 94% | dumbbells, shoulder press | Close - this bench is not in the catalogue |
+| Plate-loaded chest press machine (product photo) | Bench press 56% | shoulder press, **chest press 12%** | Wrong first guess, right machine third |
+| Cable machine, drawing of a straight-arm pulldown | Lat pulldown 77% | **cable machine 16%**, seated row | Wrong first guess, right machine second |
+| Cable machine, person standing in front of it | Seated cable row 40% | lat pulldown, **cable machine 25%** | Wrong first guess, right machine third |
+
+**6 of 10 exactly right on the first guess, and the right machine was among the three guesses in 9 of 10**
+(the tenth is an exercise the catalogue does not have). This is why the app shows three choices and
+lets the user tap the right one. Machines built around a cable and a weight stack look alike and are
+the weak spot.
+
+### Step 2 - "How was my form?"
+
+| Video | Exercise chosen | What the app said | Verdict |
+|---|---|---|---|
+| Leg press, clean side view, 27 s | Leg press | 4 reps, **100**, no problems. Knee went from 170 to 69 degrees | Plausible. Ideal camera angle |
+| Incline dumbbell press, side view, 24 s | Bench press | 3 reps, **100** | Rep count checked by eye: 3 full reps and an unfinished 4th. Correct |
+| Leg press tutorial: wrong way first, then right way, 19 s | Leg press | **77**. Reps in the "right way" half scored 100 and 100. In the "wrong way" half one rep scored 52 ("not bending the knees enough", "too fast") | Partly right. It missed the locked knees, scored one half rep 95, and a cut in the video was counted as a rep |
+| Leg press, close-up where the knees are out of frame, 11 s | Leg press | "We could not find a full repetition in this video" | Correct refusal |
+| Bench press labelled "bad form" by its author, filmed from behind the head, 10 s | Bench press | 4 reps, **100**, no problems | **Miss.** The app does not check bar path, elbow flare or bouncing, and this camera angle hides the arms |
+| Lat pulldown, 3D animation seen from behind, 4 s | Lat pulldown | 1 rep, **89**, "bar not pulled low enough" | **False alarm.** The pose model put the elbow in the wrong place on a drawn figure, and the app still said its confidence was high |
+| Standing straight-arm cable pulldown, 14 s | Lat pulldown (closest in the list) | 6 reps, **45**, "bar not pulled low enough", "leaning too far back" | **Wrong advice.** This exercise is not in the catalogue. The app cannot tell that the wrong exercise was chosen |
+
+Analysis took 7 to 39 seconds per video on a laptop without a GPU.
+
+### What these examples show
+
+- **It works when the conditions are right**: a real person, filmed from the side, whole body in the
+  picture, an exercise the app knows. Rep counting was correct where it could be checked.
+- **It refuses when it cannot see the joints**, instead of inventing a score.
+- **It only finds the mistakes it has rules for.** Range of motion, speed and body swing: yes.
+  Bar path, flared elbows, a rounded back: no.
+- **It trusts the exercise the user picked.** Pick the wrong one and the advice is wrong.
+- **Edited videos confuse it.** A cut between two clips looks like a sudden movement.
+- **Drawings and animations are not people.** The pose model is unreliable on them.
+
+Each of these is a concrete next task, listed in [docs/06-test-report.md](docs/06-test-report.md).
+
+## Measured results
 
 | What | Result |
 |---|---|
@@ -68,8 +126,9 @@ real number: the lunge model drops from 1.00 to 0.93, on only 11 clips.
 ## What is not proven yet
 
 - The scoring thresholds are sensible starting values. **A trainer has not checked them.**
-- The nine machine exercises were tested with a computer-drawn stick figure, **not with real gym videos**
-  (no openly licensed videos were available).
+- Real-video testing so far is 13 clips. Six machine exercises (seated row, chest press machine,
+  shoulder press machine, leg extension, leg curl, triceps pushdown) have still only been tested with a
+  computer-drawn stick figure, and lat pulldown only on an animation.
 - The posture classifiers were trained on a few people; the lunge one on 11 clips.
 - Not yet tested on a real phone.
 
