@@ -15,16 +15,29 @@ A working prototype for people who are new to the gym:
 
 [![Demo video: the app tracks the arm, measures the elbow angle and counts reps](docs/images/demo-poster.jpg)](docs/demo/gym-form-coach-demo.mp4)
 
-*Click the picture to open the video.* The app now makes a video like this for every upload (step 4
-above) and shows it on the result screen. Left: a real gym clip with the tracked arm and the live elbow
-angle. Right: the same angle as a graph, with each counted rep shaded. The face is blurred on purpose.
-The clip is an incline dumbbell press scored with the bench press rules.
+*Click the picture to open the video.* Left: a real gym clip with the tracked arm and the live elbow
+angle. Right: the same angle as a graph, with each counted rep shaded, then the final score.
+The clip is an incline dumbbell press scored with the bench press rules. The face is blurred in this
+demo only; the review video the app makes for a user is not blurred.
+
+## Latest updates
+
+| Update | What changed |
+|---|---|
+| **Review video for every upload** | After scoring, the app renders an MP4 of the user's own clip with the measured joint and angle drawn on it, beside a graph that draws itself, a rep counter, each rep's score and the final score. It plays on the result screen and can be saved. Works for upright exercises, lying or reclined ones (leg press, bench) and holds (plank). |
+| **Demo video** | The 26-second clip above, made with the same drawing code. |
+| **Tested on unseen internet clips** | 2 photos and 7 videos the app had never seen, with every result reported, including a missed "bad form" bench press and a false alarm on an animation. See "Tried on real gym photos and videos" below. |
+| **Better machine recogniser** | CLIP was right 51% of the time on 61 test photos. Switching to SigLIP raised that to 87% (97% within the three guesses shown). |
+| **Training graphs** | Seven graphs showing how the posture classifiers were trained and how the pretrained models were chosen: [docs/08-training-graphs.md](docs/08-training-graphs.md). |
+| **Honest validation** | Models are chosen by a score that keeps whole video clips out of training. For the lunge model that score is 0.93, not the 1.00 a random split reports. |
 
 ## The three screens
 
 | Pick or scan a machine | Read the guide | Get your score |
 |---|---|---|
 | ![Home screen](docs/images/screen-1-home.png) | ![Guide screen](docs/images/screen-2-guide.png) | ![Result screen](docs/images/screen-3-result.png) |
+
+The result screen also plays the review video under "Watch your set".
 
 It runs on a laptop and is used from a browser (also a phone browser on the same Wi-Fi). It is
 **not yet an Android APK**; the plan for that is in [docs/07-roadmap-to-apk.md](docs/07-roadmap-to-apk.md).
@@ -42,6 +55,8 @@ flowchart LR
     A --> K["3 trained classifiers<br/>(bicep, plank, lunge)"]
     K --> C
     C --> O[Score, problems,<br/>snapshot, fix]
+    A --> RV["Review video<br/>overlay + live graph"]
+    C --> RV
 ```
 
 | Part | Technique | Trained here? |
@@ -51,6 +66,7 @@ flowchart LR
 | Rep counting | Two-threshold state machine on a joint angle | No ML |
 | Scoring | Rule engine; every exercise is data in `catalog.json` | No ML |
 | Posture checks (3 exercises) | Random forest / small neural network on body-shape features | **Yes** |
+| Review video | Frames, angles and reps from the analysis, drawn with Pillow and OpenCV, encoded as H.264 with ffmpeg | No ML |
 
 No large language model is used or trained. Everything is free and open source, and runs on a CPU.
 
@@ -97,7 +113,8 @@ the weak spot.
 | Lat pulldown, 3D animation seen from behind, 4 s | Lat pulldown | 1 rep, **89**, "bar not pulled low enough" | **False alarm.** The pose model put the elbow in the wrong place on a drawn figure, and the app still said its confidence was high |
 | Standing straight-arm cable pulldown, 14 s | Lat pulldown (closest in the list) | 6 reps, **45**, "bar not pulled low enough", "leaning too far back" | **Wrong advice.** This exercise is not in the catalogue. The app cannot tell that the wrong exercise was chosen |
 
-Analysis took 7 to 39 seconds per video on a laptop without a GPU.
+Analysis took 7 to 39 seconds per video on a laptop without a GPU. Making the review video adds
+another 10 to 40 seconds.
 
 ### What these examples show
 
@@ -143,6 +160,7 @@ real number: the lunge model drops from 1.00 to 0.93, on only 11 clips.
   shoulder press machine, leg extension, leg curl, triceps pushdown) have still only been tested with a
   computer-drawn stick figure, and lat pulldown only on an animation.
 - The posture classifiers were trained on a few people; the lunge one on 11 clips.
+- The review video was checked frame by frame, but not yet played on a phone.
 - Not yet tested on a real phone.
 
 Full details: [docs/06-test-report.md](docs/06-test-report.md). This app gives general guidance, not medical advice.
@@ -195,4 +213,3 @@ Rebuild the models, measurements and graphs:
 - The result screenshot contains one frame of a third-party lat pulldown animation, shown only to
   illustrate the app's output. The animation belongs to its owner.
 - Evaluation photos: Wikimedia Commons contributors (not included in this repository).
-- Built with the help of Claude Code (Anthropic).
