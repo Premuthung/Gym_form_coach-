@@ -9,6 +9,16 @@ A working prototype for people who are new to the gym:
 3. **Upload a video of one set** - the app counts reps, gives a score out of 100, shows the frame
    where something went wrong, and says how to fix it.
 
+## Demo (26 seconds)
+
+[![Demo video: the app tracks the arm, measures the elbow angle and counts reps](docs/images/demo-poster.jpg)](docs/demo/gym-form-coach-demo.mp4)
+
+*Click the picture to open the video.* Left: a real gym clip with the tracked arm and the live elbow
+angle. Right: the same angle as a graph, with each counted rep shaded. The face is blurred on purpose.
+The clip is an incline dumbbell press scored with the bench press rules.
+
+## The three screens
+
 | Pick or scan a machine | Read the guide | Get your score |
 |---|---|---|
 | ![Home screen](docs/images/screen-1-home.png) | ![Guide screen](docs/images/screen-2-guide.png) | ![Result screen](docs/images/screen-3-result.png) |
