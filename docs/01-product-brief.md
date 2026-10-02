@@ -31,7 +31,8 @@ Later users: people training alone at home, and gyms that want an "always there"
 | 3 | Films one set from the side | Tells them where to put the phone | Yes |
 | 4 | Uploads the video | Finds the body, counts reps, checks each rep | Yes, 13 exercises |
 | 5 | Reads the result | Score out of 100, what is wrong, a picture of the moment, how to fix it | Yes |
-| 6 | Tries again | Keeps the last scores on the phone | Yes (last 8) |
+| 6 | Watches the set back | Review video: their clip with the joint angle drawn on, next to a live graph and rep counter | Yes |
+| 7 | Tries again | Keeps the last scores on the phone | Yes (last 8) |
 
 ## Design decisions and why
 
@@ -40,7 +41,8 @@ Later users: people training alone at home, and gyms that want an "always there"
 | The app shows **3 guesses** and the user taps the right one | No recogniser is 100% right. A wrong machine name leads to a wrong guide, which is a safety problem. One tap removes that risk. |
 | Every problem comes with **a number, a picture and a fix** | "Bad form" does not help. "Your elbow reached 104 degrees, target 85, pull lower" does. |
 | The app says **how sure it is** (confidence, warnings) | A video filmed from the front or with a hidden arm gives a weaker measurement. Hiding that would break trust. |
-| **The uploaded video is deleted** right after analysis | Gym videos are private. Only small snapshot pictures of problems are kept, for one day. |
+| **The uploaded video is deleted** right after analysis | Gym videos are private. The problem snapshots and the review video are kept for one day, on the computer that runs the server, so the user can watch and save them. |
+| The review video shows **only what was measured** | It is drawn from the same angles and reps as the written result, so the two can never disagree. It also lets the user see when the tracking is wrong. |
 | Machines without a form check still get a **guide** | A beginner is helped by steps 1-2 alone. We do not pretend to score what we cannot measure. |
 | Plain short sentences, big buttons | The user is in a gym, standing, with one hand free. |
 

@@ -255,6 +255,13 @@ function renderResult(r, { save = true } = {}) {
           h("div", { class: "muted" }, `Confidence in this score: ${r.confidence}`)))),
     ...r.warnings.map((w) => h("div", { class: "card note" }, w)),
 
+    r.video && h("h2", {}, "Watch your set"),
+    r.video && h("div", { class: "card" },
+      h("video", { class: "review", src: r.video, poster: r.video_poster, controls: true, playsinline: true, muted: true, preload: "metadata" }),
+      h("p", { class: "muted", style: "margin:8px 0 10px" },
+        "Left: your video with the measured joint in orange. Right: the angle through the set, with each counted rep shaded."),
+      h("a", { class: "btn ghost", style: "margin:0", href: r.video, download: `form-check-${r.exercise_id}.mp4` }, "⬇ Save this video")),
+
     h("h2", {}, r.issues.length ? "What to fix" : "Nothing to fix"),
     !r.issues.length && h("div", { class: "card" }, "We found no clear problem in this video. Keep the same form when you add weight."),
     ...r.issues.map((i) => h("div", { class: "card issue " + i.severity },

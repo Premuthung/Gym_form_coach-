@@ -8,12 +8,15 @@ A working prototype for people who are new to the gym:
 2. **Read the guide** - setup, how to do the exercise, common mistakes, safety.
 3. **Upload a video of one set** - the app counts reps, gives a score out of 100, shows the frame
    where something went wrong, and says how to fix it.
+4. **Watch your set back** - the app makes a review video: your clip with the measured joint and its
+   angle drawn on it, next to a graph of that angle with every counted rep and its score.
 
 ## Demo (26 seconds)
 
 [![Demo video: the app tracks the arm, measures the elbow angle and counts reps](docs/images/demo-poster.jpg)](docs/demo/gym-form-coach-demo.mp4)
 
-*Click the picture to open the video.* Left: a real gym clip with the tracked arm and the live elbow
+*Click the picture to open the video.* The app now makes a video like this for every upload (step 4
+above) and shows it on the result screen. Left: a real gym clip with the tracked arm and the live elbow
 angle. Right: the same angle as a graph, with each counted rep shaded. The face is blurred on purpose.
 The clip is an incline dumbbell press scored with the bench press rules.
 
@@ -177,7 +180,7 @@ Rebuild the models, measurements and graphs:
 
 | Folder | Contents |
 |---|---|
-| `backend/app/` | FastAPI server and all analysis code |
+| `backend/app/` | FastAPI server, all analysis code, and the review-video renderer (`render.py`) |
 | `frontend/` | The web page (plain HTML, CSS, JavaScript) |
 | `models/` | Pose model, trained classifiers, measurement reports |
 | `training/` | Scripts that train, measure and draw the graphs |

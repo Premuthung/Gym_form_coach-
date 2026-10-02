@@ -9,6 +9,8 @@ torch==2.13.0             # CPU build is enough
 transformers==5.17.0      # loads the image-text model (SigLIP)
 sentencepiece             # tokenizer used by SigLIP
 protobuf
+matplotlib                # draws the graph in the review video (and the training graphs)
+imageio-ffmpeg            # carries ffmpeg, used to write the review video as H.264 MP4
 scikit-learn==1.9.1       # must match the version that saved models/*.joblib
 joblib
 pandas==3.0.5             # training scripts only

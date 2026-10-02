@@ -18,6 +18,7 @@
    poll   ───── GET /api/jobs/{id} ───────▶   geometry.py     landmarks -> joint angles over time
           ◀──── progress ... then result ──   analysis.py     angles -> reps -> checks -> score
                                               classifiers.py  3 small trained posture models
+                                              render.py       draws the review video (overlay + graph)
                                               features.py     makes model inputs (shared with training)
 ```
 
@@ -32,6 +33,7 @@
 | Machine recogniser | **Transformers** + **PyTorch** | Loads open image-text models from Hugging Face. |
 | Posture models | **scikit-learn** | Simple, fast models for small tables of numbers. |
 | Numbers | **NumPy**, **pandas** | Angle maths and reading the training CSV files. |
+| Review video | **Pillow**, **OpenCV**, **matplotlib**, **ffmpeg** (via imageio-ffmpeg) | Draws each frame and encodes an MP4 that plays in any browser. |
 
 All free and open source. No paid API. No GPU. See [03-models-and-techniques.md](03-models-and-techniques.md) for the models.
 
@@ -48,6 +50,7 @@ gym-form-coach/
 │  ├─ pose.py                 video -> landmarks; draws the skeleton on snapshots
 │  ├─ geometry.py             landmarks -> angles
 │  ├─ analysis.py             the rule engine: reps, checks, score
+│  ├─ render.py               the review video: overlay on the clip + a graph that draws itself
 │  ├─ features.py             input features for the posture models
 │  └─ classifiers.py          loads and runs the posture models
 ├─ frontend/                  index.html, styles.css, app.js
@@ -69,7 +72,11 @@ gym-form-coach/
 4. `analysis.py` finds repetitions, measures every check on every rep, and builds the score.
 5. `classifiers.py` adds a learned opinion for the three exercises that have training data.
 6. For each problem, `pose.py` draws the skeleton on the worst frame and saves it as a JPEG.
-7. The uploaded video is **deleted**. The browser receives the result as JSON.
+7. `render.py` makes the **review video** (1280x720, H.264): the user's frames with the measured
+   joint and its angle drawn on, next to the angle graph, the rep counter and the score. It reuses the
+   frames and angles from steps 2-4, so nothing is tracked twice. It adds 10-40 seconds.
+8. The uploaded video is **deleted**. The browser receives the result as JSON, with links to the
+   snapshots and the review video. Those are kept on the server for one day.
 
 ## The four API routes
 

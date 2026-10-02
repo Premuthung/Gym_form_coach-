@@ -101,6 +101,8 @@ img { max-width: 100%; display: block; }
 
 .preview { width: 100%; max-height: 300px; object-fit: contain; border-radius: var(--radius); background: #000; margin-bottom: 14px; }
 video.preview { max-height: 360px; }
+video.review { width: 100%; display: block; border-radius: 10px; background: #000; aspect-ratio: 16 / 9; }
+a.btn { text-decoration: none; }
 .candidate { justify-content: space-between; }
 .candidate small { font-weight: 400; color: var(--muted); }
 

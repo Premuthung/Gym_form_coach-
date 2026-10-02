@@ -28,6 +28,7 @@ from . import classifiers
 from .analysis import analyze
 from .machine_id import MachineRecognizer
 from .pose import draw_skeleton, extract_pose
+from .render import render_review_video
 
 ROOT = Path(__file__).resolve().parents[2]
 FRONTEND = ROOT / "frontend"
@@ -105,8 +106,8 @@ def run_job(job_id: str, video: Path, exercise_id: str) -> None:
     job = jobs[job_id]
     try:
         job.update(status="running", stage="Finding your body in each frame")
-        seq = extract_pose(video, progress=lambda p: job.update(progress=round(p * 0.9, 2)))
-        job.update(stage="Counting reps and checking form", progress=0.92)
+        seq = extract_pose(video, progress=lambda p: job.update(progress=round(p * 0.7, 2)))
+        job.update(stage="Counting reps and checking form", progress=0.72)
         result = analyze(seq, CATALOG["exercises"][exercise_id])
         result["exercise_id"] = exercise_id
         result["exercise_name"] = CATALOG["exercises"][exercise_id]["name"]
@@ -119,6 +120,17 @@ def run_job(job_id: str, video: Path, exercise_id: str) -> None:
                 picture = draw_skeleton(seq.jpegs[frame], seq.image[frame], highlight, caption=issue["title"])
                 (out / f"issue_{k}.jpg").write_bytes(picture)
                 issue["snapshot"] = f"/media/{job_id}/issue_{k}.jpg"
+
+        if result["ok"] and seq.jpegs:
+            # The review video is a bonus: if it cannot be made, the written result is still returned.
+            job.update(stage="Making your review video", progress=0.75)
+            try:
+                render_review_video(seq, CATALOG["exercises"][exercise_id], result, out / "review.mp4",
+                                    progress=lambda p: job.update(progress=round(0.75 + p * 0.24, 2)))
+                result["video"] = f"/media/{job_id}/review.mp4"
+                result["video_poster"] = f"/media/{job_id}/review.jpg"
+            except Exception:
+                traceback.print_exc()
         job.update(status="done", progress=1.0, stage="Done", result=result)
     except ValueError as e:        # a problem with the video that the user can fix
         job.update(status="error", error=str(e))

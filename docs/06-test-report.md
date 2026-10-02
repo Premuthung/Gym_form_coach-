@@ -165,8 +165,15 @@ Tested with real HTTP requests against the running server.
 | Real squat video | progress rises, then result | pass |
 | Real bicep video | result with 4 problems and 4 snapshot pictures | pass |
 | Uploaded video deleted afterwards | upload folder empty | pass |
+| Review video made for a scored upload | MP4 (H.264) and poster picture served; partial download (HTTP 206) works | pass |
+| No review video when no rep is found | result has no video link | pass |
 
-**Speed:** 15-second video (352x640) -> 21 seconds. 22-second video (1920x1080) -> 72 seconds.
+**Review video:** rendered and checked by eye for a standing exercise (bicep curl), two lying or reclined
+ones (leg press, incline press) and a hold (plank). Playback was checked from extracted frames, not in a
+phone browser. Rendering took 12 to 41 seconds per clip.
+
+**Speed:** 15-second video (352x640) -> 21 seconds. 22-second video (1920x1080) -> 72 seconds
+(before the review video was added; with it, a 22-24 second clip takes about 80 seconds in total).
 Recogniser ready about 1-2 minutes after the server starts.
 
 ## 6. Web page
