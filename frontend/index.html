@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>Gym Form Coach</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bar">
+    <button id="back" class="icon-btn" aria-label="Back" hidden>←</button>
+    <h1 id="title">Gym Form Coach</h1>
+    <span id="status" class="status" title="Machine recogniser status"></span>
+  </header>
+
+  <!-- Each <section> is one screen. app.js shows one at a time. -->
+  <main>
+    <section id="screen-home" class="screen">
+      <p class="lead">New to the gym? Take a photo of any machine. We show you how to use it, then check your form from a short video.</p>
+      <label class="btn primary big">
+        📷 Scan a machine
+        <input id="photo-input" type="file" accept="image/*" capture="environment" hidden>
+      </label>
+      <label class="btn ghost">
+        Choose a photo from the gallery
+        <input id="photo-input-gallery" type="file" accept="image/*" hidden>
+      </label>
+
+      <h2>Or pick the machine</h2>
+      <div id="machine-grid" class="grid"></div>
+
+      <div id="history-block" hidden>
+        <h2>Your last checks</h2>
+        <ul id="history" class="history"></ul>
+      </div>
+      <p class="fine">This app gives general guidance. It is not medical advice. If something hurts, stop and ask a trainer.</p>
+    </section>
+
+    <section id="screen-identify" class="screen" hidden>
+      <img id="photo-preview" class="preview" alt="Your photo">
+      <div id="identify-body"></div>
+    </section>
+
+    <section id="screen-guide" class="screen" hidden>
+      <div id="guide-body"></div>
+    </section>
+
+    <section id="screen-record" class="screen" hidden>
+      <div id="record-body"></div>
+    </section>
+
+    <section id="screen-progress" class="screen" hidden>
+      <div class="center">
+        <div class="spinner" aria-hidden="true"></div>
+        <h2 id="progress-stage">Uploading your video</h2>
+        <div class="track"><div id="progress-fill" class="fill"></div></div>
+        <p class="fine">A 20-second video takes about one minute on this computer. Your video is deleted when the check is finished.</p>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen" hidden>
+      <div id="result-body"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="alert" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

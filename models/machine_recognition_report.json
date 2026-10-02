@@ -1,0 +1,37 @@
+{
+  "model": "google/siglip-base-patch16-224",
+  "photos": 61,
+  "classes_with_photos": 16,
+  "top1": 0.869,
+  "top3": 0.967,
+  "accepted_share": 0.967,
+  "accuracy_when_accepted": 0.898,
+  "seconds_per_photo": 1.38,
+  "per_class": {
+    "bench_press": "3/3",
+    "cable_machine": "5/7",
+    "dumbbells": "5/5",
+    "exercise_bike": "3/3",
+    "exercise_mat": "2/2",
+    "lat_pulldown": "7/8",
+    "leg_curl": "1/1",
+    "leg_extension": "1/1",
+    "leg_press": "8/9",
+    "pec_deck": "2/2",
+    "rowing_machine": "5/6",
+    "seated_cable_row": "1/1",
+    "shoulder_press_machine": "1/2",
+    "smith_machine": "0/2",
+    "squat_rack": "2/2",
+    "treadmill": "7/7"
+  },
+  "most_common_mistakes": [
+    "cable_machine -> lat_pulldown (2x)",
+    "lat_pulldown -> pec_deck (1x)",
+    "leg_press -> bench_press (1x)",
+    "rowing_machine -> bench_press (1x)",
+    "shoulder_press_machine -> pec_deck (1x)",
+    "smith_machine -> shoulder_press_machine (1x)",
+    "smith_machine -> bench_press (1x)"
+  ]
+}

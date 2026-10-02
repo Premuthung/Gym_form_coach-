@@ -1,0 +1,135 @@
+{
+  "sklearn_version": "1.9.1",
+  "train_aspect": 1.7777777777777777,
+  "frame_step": 3,
+  "tasks": {
+    "bicep_lean_back": {
+      "frames": 5124,
+      "clips": 66,
+      "classes": [
+        "C",
+        "L"
+      ],
+      "chosen": "random_forest",
+      "models": {
+        "logistic_regression": {
+          "cv_by_clip_f1": 0.968,
+          "cv_random_f1": 0.971,
+          "test_file_f1": 0.995,
+          "test_file_accuracy": 0.995
+        },
+        "random_forest": {
+          "cv_by_clip_f1": 0.991,
+          "cv_random_f1": 0.992,
+          "test_file_f1": 0.998,
+          "test_file_accuracy": 0.998
+        },
+        "mlp_64_32": {
+          "cv_by_clip_f1": 0.984,
+          "cv_random_f1": 0.992,
+          "test_file_f1": 1.0,
+          "test_file_accuracy": 1.0
+        }
+      },
+      "test_confusion_matrix": [
+        [
+          339,
+          0
+        ],
+        [
+          1,
+          264
+        ]
+      ],
+      "test_frames": 604
+    },
+    "plank_posture": {
+      "frames": 9507,
+      "clips": 221,
+      "classes": [
+        "C",
+        "H",
+        "L"
+      ],
+      "chosen": "random_forest",
+      "models": {
+        "logistic_regression": {
+          "cv_by_clip_f1": 0.979,
+          "cv_random_f1": 0.997,
+          "test_file_f1": 0.992,
+          "test_file_accuracy": 0.992
+        },
+        "random_forest": {
+          "cv_by_clip_f1": 0.996,
+          "cv_random_f1": 0.997,
+          "test_file_f1": 0.99,
+          "test_file_accuracy": 0.99
+        },
+        "mlp_64_32": {
+          "cv_by_clip_f1": 0.976,
+          "cv_random_f1": 0.996,
+          "test_file_f1": 0.989,
+          "test_file_accuracy": 0.989
+        }
+      },
+      "test_confusion_matrix": [
+        [
+          234,
+          0,
+          0
+        ],
+        [
+          1,
+          240,
+          0
+        ],
+        [
+          6,
+          0,
+          229
+        ]
+      ],
+      "test_frames": 710
+    },
+    "lunge_knee_over_toe": {
+      "frames": 5969,
+      "clips": 11,
+      "classes": [
+        "C",
+        "L"
+      ],
+      "chosen": "mlp_64_32",
+      "models": {
+        "logistic_regression": {
+          "cv_by_clip_f1": 0.762,
+          "cv_random_f1": 0.982,
+          "test_file_f1": 0.998,
+          "test_file_accuracy": 0.998
+        },
+        "random_forest": {
+          "cv_by_clip_f1": 0.856,
+          "cv_random_f1": 0.997,
+          "test_file_f1": 0.999,
+          "test_file_accuracy": 0.999
+        },
+        "mlp_64_32": {
+          "cv_by_clip_f1": 0.928,
+          "cv_random_f1": 0.997,
+          "test_file_f1": 0.998,
+          "test_file_accuracy": 0.998
+        }
+      },
+      "test_confusion_matrix": [
+        [
+          545,
+          1
+        ],
+        [
+          1,
+          560
+        ]
+      ],
+      "test_frames": 1107
+    }
+  }
+}

@@ -1,0 +1,701 @@
+{
+  "machines": [
+    {
+      "id": "lat_pulldown", "name": "Lat Pulldown Machine", "icon": "⬇️",
+      "what": "A seat with a thigh pad and a long bar hanging from a cable above your head.",
+      "labels": ["lat pulldown machine", "lat pull-down cable machine with an overhead bar"],
+      "exercises": ["lat_pulldown"]
+    },
+    {
+      "id": "seated_cable_row", "name": "Seated Cable Row", "icon": "🚣",
+      "what": "A low bench with foot plates and a handle on a cable that you pull towards your stomach.",
+      "labels": ["seated cable row machine", "low row cable machine with foot plates"],
+      "exercises": ["seated_cable_row"]
+    },
+    {
+      "id": "chest_press_machine", "name": "Chest Press Machine", "icon": "💪",
+      "what": "A seat with a back pad and two handles at chest height that you push forward.",
+      "labels": ["seated chest press machine", "chest press weight machine"],
+      "exercises": ["chest_press"]
+    },
+    {
+      "id": "shoulder_press_machine", "name": "Shoulder Press Machine", "icon": "🙌",
+      "what": "A seat with a back pad and two handles at shoulder height that you push up.",
+      "labels": ["seated shoulder press machine", "overhead press weight machine"],
+      "exercises": ["shoulder_press"]
+    },
+    {
+      "id": "leg_press", "name": "Leg Press Machine", "icon": "🦵",
+      "what": "A reclined seat facing a large foot plate that you push away with your legs.",
+      "labels": ["leg press machine", "45 degree leg press sled machine"],
+      "exercises": ["leg_press"]
+    },
+    {
+      "id": "leg_extension", "name": "Leg Extension Machine", "icon": "🦿",
+      "what": "A seat with a padded bar in front of your shins that you lift by straightening your knees.",
+      "labels": ["leg extension machine", "seated quadriceps extension machine"],
+      "exercises": ["leg_extension"]
+    },
+    {
+      "id": "leg_curl", "name": "Leg Curl Machine", "icon": "🦵",
+      "what": "A seat or bench with a padded bar behind your ankles that you pull by bending your knees.",
+      "labels": ["leg curl machine", "hamstring curl machine"],
+      "exercises": ["leg_curl"]
+    },
+    {
+      "id": "cable_machine", "name": "Cable Machine", "icon": "🔗",
+      "what": "A tall frame with adjustable pulleys and handles on cables.",
+      "labels": ["cable crossover machine", "cable pulley machine with handles", "functional trainer cable station"],
+      "exercises": ["triceps_pushdown"]
+    },
+    {
+      "id": "smith_machine", "name": "Smith Machine", "icon": "🏋️",
+      "what": "A barbell that slides up and down on fixed vertical rails inside a frame.",
+      "labels": ["smith machine", "barbell on vertical guide rails in a frame"],
+      "exercises": ["squat"]
+    },
+    {
+      "id": "squat_rack", "name": "Squat Rack / Power Rack", "icon": "🏋️",
+      "what": "A steel cage or two posts that hold a free barbell at shoulder height.",
+      "labels": ["squat rack", "power rack with a barbell", "power cage"],
+      "exercises": ["squat"]
+    },
+    {
+      "id": "dumbbells", "name": "Dumbbells", "icon": "🏋️",
+      "what": "Short hand weights, usually stored in pairs on a rack.",
+      "labels": ["dumbbells", "rack of dumbbells"],
+      "exercises": ["bicep_curl", "lunge"]
+    },
+    {
+      "id": "bench_press", "name": "Bench Press", "icon": "🛏️",
+      "what": "A flat bench under a barbell that rests on two uprights.",
+      "labels": ["bench press", "flat weight bench with a barbell on uprights"],
+      "exercises": ["bench_press"]
+    },
+    {
+      "id": "pec_deck", "name": "Pec Deck (Chest Fly) Machine", "icon": "🦋",
+      "what": "A seat with two arms at the sides that you squeeze together in front of your chest.",
+      "labels": ["pec deck machine", "chest fly butterfly machine"],
+      "exercises": ["pec_deck_fly"]
+    },
+    {
+      "id": "treadmill", "name": "Treadmill", "icon": "🏃",
+      "what": "A moving belt you walk or run on, with a screen and handrails.",
+      "labels": ["treadmill", "running machine"],
+      "exercises": ["treadmill_walk"]
+    },
+    {
+      "id": "exercise_bike", "name": "Exercise Bike", "icon": "🚴",
+      "what": "A bicycle that stays in one place, with pedals, a saddle and a screen.",
+      "labels": ["stationary exercise bike", "spin bike"],
+      "exercises": ["bike_ride"]
+    },
+    {
+      "id": "rowing_machine", "name": "Rowing Machine", "icon": "🚣",
+      "what": "A long rail with a sliding seat, foot straps and a handle on a chain.",
+      "labels": ["indoor rowing machine", "rowing ergometer"],
+      "exercises": ["rowing"]
+    },
+    {
+      "id": "exercise_mat", "name": "Exercise Mat", "icon": "🧘",
+      "what": "A soft mat on the floor for body-weight exercises.",
+      "labels": ["exercise mat on the floor", "yoga mat"],
+      "exercises": ["plank"]
+    }
+  ],
+
+  "not_gym_labels": [
+    "a person", "a selfie of a face", "a room", "a street", "food", "a car", "a pet",
+    "a document or a screenshot", "furniture", "a blank wall or floor"
+  ],
+
+  "exercises": {
+    "lat_pulldown": {
+      "name": "Lat Pulldown", "muscles": ["Back (lats)", "Biceps"], "level": "Beginner",
+      "plan": "3 sets of 10-12 reps. Rest 60-90 seconds between sets.",
+      "setup": [
+        "Move the pin in the weight stack to a light weight. For your first time, pick a weight you could lift 15 times.",
+        "Adjust the thigh pad so it holds your legs down firmly when you sit.",
+        "Stand up, grip the bar a little wider than your shoulders, palms facing away, then sit down with the bar."
+      ],
+      "steps": [
+        "Sit tall, chest up, and lean back just a little.",
+        "Pull the bar down to your upper chest. Think about pulling your elbows down to your back pockets.",
+        "Pause for one second at the bottom.",
+        "Let the bar go up slowly until your arms are straight again."
+      ],
+      "mistakes": [
+        "Swinging the body back to move the weight.",
+        "Pulling the bar behind the neck.",
+        "Stopping halfway and not straightening the arms at the top.",
+        "Letting the weight crash back up."
+      ],
+      "safety": "Never pull the bar behind your head. Stand up to return the bar, do not let it fly up.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, about 2-3 metres away, at chest height. Your whole upper body and the bar must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "elbow", "start": "extended", "parts": ["shoulder", "elbow", "wrist", "hip"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "elbow", "stat": "at_peak", "good": 85, "bad": 120, "weight": 2,
+           "title": "Bar not pulled low enough", "fix": "Pull the bar all the way to your upper chest. If you cannot, the weight is too heavy."},
+          {"id": "rom_start", "group": "range", "metric": "elbow", "stat": "at_start", "good": 155, "bad": 125, "weight": 1.5,
+           "title": "Arms not straight at the top", "fix": "Let the bar rise until your arms are almost straight. This stretch is half of the exercise."},
+          {"id": "swing", "group": "posture", "metric": "torso_lean", "stat": "range", "good": 12, "bad": 30, "weight": 2,
+           "title": "Body is swinging", "fix": "Keep your upper body still. Only your arms should move. Lower the weight if you need to swing."},
+          {"id": "lean", "group": "posture", "metric": "torso_lean", "stat": "max", "good": 30, "bad": 50, "weight": 1,
+           "title": "Leaning too far back", "fix": "Lean back only a little, about the angle of a car seat. Keep your chest up."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Count: one second down, pause, two seconds up."}
+        ]
+      }
+    },
+
+    "seated_cable_row": {
+      "name": "Seated Cable Row", "muscles": ["Middle back", "Lats", "Biceps"], "level": "Beginner",
+      "plan": "3 sets of 10-12 reps. Rest 60-90 seconds between sets.",
+      "setup": [
+        "Choose a light weight with the pin.",
+        "Sit on the bench and put your feet flat on the foot plates, knees slightly bent.",
+        "Reach forward, take the handle with both hands, then sit back until your back is straight and upright."
+      ],
+      "steps": [
+        "Sit tall with a straight back and arms stretched in front of you.",
+        "Pull the handle to your stomach. Squeeze your shoulder blades together.",
+        "Pause for one second.",
+        "Let your arms go forward slowly until they are straight."
+      ],
+      "mistakes": [
+        "Rocking the body forward and backward.",
+        "Rounding the lower back.",
+        "Shrugging the shoulders up to the ears.",
+        "Pulling only halfway."
+      ],
+      "safety": "Keep your back straight the whole time. If your back rounds, the weight is too heavy.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2-3 metres away, at chest height. Your hips, back and arms must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "elbow", "start": "extended", "parts": ["shoulder", "elbow", "wrist", "hip"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "elbow", "stat": "at_peak", "good": 90, "bad": 125, "weight": 2,
+           "title": "Handle not pulled in far enough", "fix": "Pull the handle until it touches your stomach, elbows passing your sides."},
+          {"id": "rom_start", "group": "range", "metric": "elbow", "stat": "at_start", "good": 150, "bad": 120, "weight": 1.5,
+           "title": "Arms not straight at the start", "fix": "Let your arms go fully forward before the next pull."},
+          {"id": "swing", "group": "posture", "metric": "torso_lean", "stat": "range", "good": 15, "bad": 35, "weight": 2.5,
+           "title": "Body is rocking", "fix": "Keep your upper body upright and still. Pull with your arms and back, not by leaning back."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Pull for one second, pause, and return for two seconds."}
+        ]
+      }
+    },
+
+    "chest_press": {
+      "name": "Machine Chest Press", "muscles": ["Chest", "Front shoulders", "Triceps"], "level": "Beginner",
+      "plan": "3 sets of 10-12 reps. Rest 60-90 seconds between sets.",
+      "setup": [
+        "Choose a light weight with the pin.",
+        "Adjust the seat height so the handles are level with the middle of your chest.",
+        "Sit with your back and head against the pad and your feet flat on the floor."
+      ],
+      "steps": [
+        "Grip the handles, elbows a little below shoulder height.",
+        "Push the handles forward until your arms are almost straight.",
+        "Pause for one second.",
+        "Bring the handles back slowly until your hands are near your chest."
+      ],
+      "mistakes": [
+        "Lifting the back or head off the pad.",
+        "Locking the elbows hard at the end.",
+        "Short, half reps.",
+        "Seat too low, so the handles are at shoulder height."
+      ],
+      "safety": "Keep your back on the pad. Do not let the weight stack slam down.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2-3 metres away, at chest height. Your arm, shoulder and hip must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "elbow", "start": "flexed", "parts": ["shoulder", "elbow", "wrist", "hip"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "elbow", "stat": "at_peak", "good": 155, "bad": 125, "weight": 2,
+           "title": "Not pushing all the way out", "fix": "Push until your arms are almost straight."},
+          {"id": "rom_start", "group": "range", "metric": "elbow", "stat": "at_start", "good": 95, "bad": 125, "weight": 2,
+           "title": "Not coming back far enough", "fix": "Bring the handles back until your hands are close to your chest."},
+          {"id": "back_off_pad", "group": "posture", "metric": "torso_lean", "stat": "range", "good": 8, "bad": 20, "weight": 1.5,
+           "title": "Back is moving off the pad", "fix": "Keep your back and head pressed on the pad for the whole rep."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Push for one second, return for two seconds."}
+        ]
+      }
+    },
+
+    "shoulder_press": {
+      "name": "Machine Shoulder Press", "muscles": ["Shoulders", "Triceps"], "level": "Beginner",
+      "plan": "3 sets of 8-12 reps. Rest 60-90 seconds between sets.",
+      "setup": [
+        "Choose a light weight with the pin.",
+        "Adjust the seat so the handles are level with your shoulders.",
+        "Sit with your back flat on the pad and feet flat on the floor."
+      ],
+      "steps": [
+        "Grip the handles with your elbows under your wrists.",
+        "Push the handles up until your arms are almost straight.",
+        "Pause for one second.",
+        "Lower slowly until your hands are level with your ears."
+      ],
+      "mistakes": [
+        "Arching the lower back away from the pad.",
+        "Lowering only a little (half reps).",
+        "Pushing the head forward.",
+        "Using a weight that is too heavy."
+      ],
+      "safety": "Stop if you feel a sharp pain in the shoulder. Keep your lower back on the pad.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2-3 metres away, at shoulder height. Your arms must stay in the picture at the top."},
+      "analysis": {
+        "type": "reps", "primary": "elbow", "start": "flexed", "parts": ["shoulder", "elbow", "wrist", "hip"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "elbow", "stat": "at_peak", "good": 155, "bad": 125, "weight": 2,
+           "title": "Not pushing all the way up", "fix": "Push until your arms are almost straight above you."},
+          {"id": "rom_start", "group": "range", "metric": "elbow", "stat": "at_start", "good": 95, "bad": 125, "weight": 2,
+           "title": "Not lowering far enough", "fix": "Lower the handles until your hands are level with your ears."},
+          {"id": "arch", "group": "posture", "metric": "torso_lean", "stat": "max", "good": 15, "bad": 30, "weight": 2,
+           "title": "Leaning or arching back", "fix": "Keep your back flat on the pad. Tighten your stomach before each push."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Push for one second, lower for two seconds."}
+        ]
+      }
+    },
+
+    "leg_press": {
+      "name": "Leg Press", "muscles": ["Thighs (quads)", "Glutes", "Hamstrings"], "level": "Beginner",
+      "plan": "3 sets of 10-15 reps. Rest 90 seconds between sets.",
+      "setup": [
+        "Start with a light weight, or no plates at all.",
+        "Sit with your back and hips flat on the seat.",
+        "Put your feet on the plate, shoulder-width apart, toes pointing slightly out.",
+        "Push the plate a little and turn the safety handles to release it."
+      ],
+      "steps": [
+        "Start with your legs almost straight. Do not lock your knees.",
+        "Bend your knees slowly and let the plate come towards you until your knees are at about 90 degrees.",
+        "Push the plate away through your whole foot.",
+        "Stop just before your knees lock. When you finish, turn the safety handles back."
+      ],
+      "mistakes": [
+        "Locking the knees straight at the top.",
+        "Going too deep so the hips lift off the seat.",
+        "Knees falling inwards.",
+        "Lifting the heels off the plate.",
+        "Very short reps with too much weight."
+      ],
+      "safety": "Never lock your knees. Always put the safety handles back before you take your feet off.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2-3 metres away, at hip height. Your hip, knee and ankle must all be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "knee", "start": "extended", "parts": ["hip", "knee", "ankle"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "knee", "stat": "at_peak", "good": 100, "bad": 130, "weight": 2.5,
+           "title": "Not bending the knees enough", "fix": "Lower the plate until your knees reach about 90 degrees. Use less weight if you cannot."},
+          {"id": "rom_start", "group": "range", "metric": "knee", "stat": "at_start", "good": 150, "bad": 125, "weight": 1,
+           "title": "Not pushing far enough", "fix": "Push until your legs are almost straight."},
+          {"id": "lockout", "group": "posture", "metric": "knee", "stat": "max", "good": 172, "bad": 180, "weight": 1.5,
+           "title": "Knees locking straight", "fix": "Stop the push just before your legs are fully straight. Keep a small bend in the knees."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.5, "bad": 1.2, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Lower for two seconds, push for one second."}
+        ]
+      }
+    },
+
+    "leg_extension": {
+      "name": "Leg Extension", "muscles": ["Front of thighs (quads)"], "level": "Beginner",
+      "plan": "3 sets of 10-15 reps. Rest 60 seconds between sets.",
+      "setup": [
+        "Choose a light weight with the pin.",
+        "Move the back pad so your knees line up with the machine's pivot (the round joint on the side).",
+        "Set the leg pad so it rests on your shins, just above the ankles."
+      ],
+      "steps": [
+        "Sit with your back on the pad and hold the side handles.",
+        "Straighten your knees to lift the pad until your legs are almost straight.",
+        "Pause for one second and squeeze your thighs.",
+        "Lower slowly to the start."
+      ],
+      "mistakes": [
+        "Kicking the weight up fast.",
+        "Lifting the hips off the seat.",
+        "Not straightening the legs.",
+        "Dropping the weight on the way down."
+      ],
+      "safety": "Use a light weight. This machine puts stress on the knee joint when the load is heavy.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2 metres away, at knee height. Your hip, knee and ankle must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "knee", "start": "flexed", "parts": ["hip", "knee", "ankle"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "knee", "stat": "at_peak", "good": 160, "bad": 130, "weight": 2.5,
+           "title": "Legs not straightened", "fix": "Lift until your legs are almost straight, then squeeze for one second."},
+          {"id": "rom_start", "group": "range", "metric": "knee", "stat": "at_start", "good": 105, "bad": 130, "weight": 1.5,
+           "title": "Not lowering all the way", "fix": "Lower the pad until your knees are bent to about 90 degrees."},
+          {"id": "rock", "group": "posture", "metric": "torso_lean", "stat": "range", "good": 8, "bad": 20, "weight": 1.5,
+           "title": "Upper body is rocking", "fix": "Keep your back on the pad and hold the handles. Only your lower legs should move."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Lift for one second, pause, lower for two seconds."}
+        ]
+      }
+    },
+
+    "leg_curl": {
+      "name": "Seated Leg Curl", "muscles": ["Back of thighs (hamstrings)"], "level": "Beginner",
+      "plan": "3 sets of 10-15 reps. Rest 60 seconds between sets.",
+      "setup": [
+        "Choose a light weight with the pin.",
+        "Move the back pad so your knees line up with the machine's pivot.",
+        "Lower the thigh pad onto your thighs. The leg pad sits behind your ankles."
+      ],
+      "steps": [
+        "Start with your legs almost straight.",
+        "Bend your knees and pull the pad down and back as far as you can.",
+        "Pause for one second.",
+        "Let your legs straighten slowly."
+      ],
+      "mistakes": [
+        "Lifting the hips off the seat.",
+        "Short reps that do not bend the knee to 90 degrees.",
+        "Letting the weight snap back.",
+        "Leaning forward to help."
+      ],
+      "safety": "Move slowly. A fast return can strain the back of the knee.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2 metres away, at knee height. Your hip, knee and ankle must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "knee", "start": "extended", "parts": ["hip", "knee", "ankle"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "knee", "stat": "at_peak", "good": 95, "bad": 125, "weight": 2.5,
+           "title": "Not curling far enough", "fix": "Bend your knees to at least 90 degrees."},
+          {"id": "rom_start", "group": "range", "metric": "knee", "stat": "at_start", "good": 150, "bad": 125, "weight": 1.5,
+           "title": "Legs not straightening between reps", "fix": "Let your legs go almost straight before the next curl."},
+          {"id": "rock", "group": "posture", "metric": "torso_lean", "stat": "range", "good": 8, "bad": 20, "weight": 1.5,
+           "title": "Upper body is rocking", "fix": "Keep your back on the pad and hold the handles."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Curl for one second, pause, return for two seconds."}
+        ]
+      }
+    },
+
+    "triceps_pushdown": {
+      "name": "Cable Triceps Pushdown", "muscles": ["Back of arms (triceps)"], "level": "Beginner",
+      "plan": "3 sets of 10-15 reps. Rest 60 seconds between sets.",
+      "setup": [
+        "Move the pulley to the highest position and attach a straight bar or a rope.",
+        "Choose a light weight with the pin.",
+        "Stand facing the machine, one small step back, feet hip-width apart."
+      ],
+      "steps": [
+        "Hold the bar with your elbows bent and tucked into your sides.",
+        "Push the bar down until your arms are straight.",
+        "Pause for one second.",
+        "Let the bar rise slowly until your forearms are just above level. Your elbows stay at your sides."
+      ],
+      "mistakes": [
+        "Elbows moving forward and back.",
+        "Leaning the body over the bar to push with body weight.",
+        "Not straightening the arms.",
+        "Letting the bar pull the hands up too high."
+      ],
+      "safety": "Keep your wrists straight. Do not let the weight stack slam.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2-3 metres away, at chest height. Your whole body should be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "elbow", "start": "flexed", "parts": ["shoulder", "elbow", "wrist", "hip"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "elbow", "stat": "at_peak", "good": 160, "bad": 135, "weight": 2,
+           "title": "Arms not straight at the bottom", "fix": "Push down until your arms are fully straight and squeeze."},
+          {"id": "rom_start", "group": "range", "metric": "elbow", "stat": "at_start", "good": 95, "bad": 120, "weight": 1.5,
+           "title": "Not letting the bar come up enough", "fix": "Let the bar rise until your forearms are a little above level."},
+          {"id": "elbow_drift", "group": "posture", "metric": "upper_arm_swing", "stat": "range", "good": 15, "bad": 35, "weight": 2,
+           "title": "Elbows are moving", "fix": "Pin your elbows to your sides. Only your forearms should move."},
+          {"id": "swing", "group": "posture", "metric": "torso_lean", "stat": "range", "good": 10, "bad": 25, "weight": 1.5,
+           "title": "Body is rocking", "fix": "Stand still with a slight forward lean. Lower the weight if you need to rock."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Push for one second, return for two seconds."}
+        ]
+      }
+    },
+
+    "squat": {
+      "name": "Squat", "muscles": ["Thighs (quads)", "Glutes", "Core"], "level": "Beginner (start with no weight)",
+      "plan": "3 sets of 8-12 reps. Learn the movement with no weight first.",
+      "setup": [
+        "Set the bar a little below shoulder height. For your first time, use the empty bar or no bar.",
+        "Set the safety bars or stops just below the lowest point of your squat.",
+        "Stand under the bar so it rests on the muscles of your upper back, not on your neck.",
+        "Feet shoulder-width apart, toes pointing slightly out."
+      ],
+      "steps": [
+        "Take a breath and tighten your stomach.",
+        "Push your hips back and bend your knees, as if sitting on a chair.",
+        "Go down until your thighs are level with the floor. Keep your chest up and heels on the floor.",
+        "Push through your whole foot to stand up straight."
+      ],
+      "mistakes": [
+        "Stopping too high (shallow squat).",
+        "Leaning the chest far forward.",
+        "Knees falling inwards.",
+        "Heels lifting off the floor.",
+        "Rounding the lower back."
+      ],
+      "safety": "Always set the safety bars. Ask a trainer to watch your first sets with weight.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 3 metres away, at hip height. Your whole body from head to feet must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "knee_both", "start": "extended", "parts": ["shoulder", "hip", "knee", "ankle"],
+        "checks": [
+          {"id": "depth", "group": "range", "metric": "knee_both", "stat": "at_peak", "good": 95, "bad": 125, "weight": 2.5,
+           "title": "Squat is too shallow", "fix": "Go down until your thighs are level with the floor. Use less weight until you can."},
+          {"id": "stand", "group": "range", "metric": "knee_both", "stat": "at_start", "good": 160, "bad": 140, "weight": 1,
+           "title": "Not standing up fully", "fix": "Stand all the way up and squeeze your glutes before the next rep."},
+          {"id": "lean", "group": "posture", "metric": "torso_lean", "stat": "max", "good": 45, "bad": 65, "weight": 2,
+           "title": "Chest is falling forward", "fix": "Keep your chest up and look straight ahead. Push your knees forward a little more and sit between your heels.", "views": ["side", "angled"]},
+          {"id": "knees_in", "group": "posture", "metric": "knee_ankle_ratio", "stat": "at_peak", "good": 0.9, "bad": 0.6, "weight": 2,
+           "title": "Knees falling inwards", "fix": "Push your knees out so they point the same way as your toes.", "views": ["front"]},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Go down for two seconds, then stand up."}
+        ]
+      }
+    },
+
+    "bicep_curl": {
+      "name": "Dumbbell Bicep Curl", "muscles": ["Front of arms (biceps)"], "level": "Beginner",
+      "plan": "3 sets of 10-12 reps. Rest 60 seconds between sets.",
+      "setup": [
+        "Pick two light dumbbells. A weight you can lift 15 times is right for learning.",
+        "Stand tall, feet hip-width apart, arms straight down, palms facing forward."
+      ],
+      "steps": [
+        "Keep your elbows close to your sides.",
+        "Bend your elbows and lift the dumbbells to your shoulders.",
+        "Squeeze for one second at the top.",
+        "Lower slowly until your arms are straight."
+      ],
+      "mistakes": [
+        "Leaning back to swing the weight up.",
+        "Elbows moving forward (the shoulder does the work).",
+        "Not lifting all the way to the shoulder.",
+        "Dropping the weight on the way down."
+      ],
+      "safety": "If you must lean back to lift, the dumbbells are too heavy.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 2-3 metres away, at chest height. Your whole upper body must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "elbow", "start": "extended", "parts": ["shoulder", "elbow", "wrist", "hip"],
+        "classifier": "bicep_lean_back",
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "elbow", "stat": "at_peak", "good": 60, "bad": 95, "weight": 2,
+           "title": "Not curling all the way up", "fix": "Lift the dumbbell until it is close to your shoulder and squeeze."},
+          {"id": "rom_start", "group": "range", "metric": "elbow", "stat": "at_start", "good": 150, "bad": 120, "weight": 1.5,
+           "title": "Arms not straight at the bottom", "fix": "Lower the dumbbell until your arm is straight before the next rep."},
+          {"id": "elbow_drift", "group": "posture", "metric": "upper_arm_swing", "stat": "max", "good": 25, "bad": 45, "weight": 2,
+           "title": "Elbow moving away from your side", "fix": "Keep your upper arm against your ribs. Only the forearm should move."},
+          {"id": "lean_back", "group": "posture", "metric": "classifier", "stat": "error_share", "good": 0.1, "bad": 0.6, "weight": 2,
+           "title": "Leaning back", "fix": "Stand straight and tighten your stomach. Use lighter dumbbells so you do not need to swing."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Lift for one second, lower for two seconds."}
+        ]
+      }
+    },
+
+    "lunge": {
+      "name": "Lunge", "muscles": ["Thighs (quads)", "Glutes"], "level": "Beginner (start with no weight)",
+      "plan": "3 sets of 8-10 reps on each leg. Start with no weight.",
+      "setup": [
+        "Stand tall with your feet hip-width apart.",
+        "Hold a dumbbell in each hand at your sides, or use no weight for your first time."
+      ],
+      "steps": [
+        "Take a big step forward with one leg.",
+        "Lower your body straight down until both knees are bent to about 90 degrees.",
+        "Your front knee stays above your ankle. Your back knee stops just above the floor.",
+        "Push through your front heel to come back to standing."
+      ],
+      "mistakes": [
+        "Front knee going far past the toes.",
+        "Leaning the upper body forward.",
+        "Step too short.",
+        "Not going down far enough."
+      ],
+      "safety": "Keep your front heel on the floor. Stop if your knee hurts.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 3 metres away, at hip height. Your whole body must be in the picture."},
+      "analysis": {
+        "type": "reps", "primary": "knee_both", "start": "extended", "parts": ["shoulder", "hip", "knee", "ankle"],
+        "classifier": "lunge_knee_over_toe", "classifier_window": "peak",
+        "checks": [
+          {"id": "depth", "group": "range", "metric": "knee_both", "stat": "at_peak", "good": 100, "bad": 130, "weight": 2.5,
+           "title": "Not going down far enough", "fix": "Lower until both knees are bent to about 90 degrees."},
+          {"id": "lean", "group": "posture", "metric": "torso_lean", "stat": "max", "good": 20, "bad": 40, "weight": 1.5,
+           "title": "Upper body leaning forward", "fix": "Keep your chest up and your shoulders above your hips."},
+          {"id": "knee_over_toe", "group": "posture", "metric": "classifier", "stat": "error_share", "good": 0.2, "bad": 0.7, "weight": 2,
+           "title": "Front knee past the toes", "fix": "Take a longer step and drop straight down, so your front knee stays above your ankle."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1,
+           "title": "Reps are too fast", "fix": "Lower for two seconds, then push back up."}
+        ]
+      }
+    },
+
+    "bench_press": {
+      "name": "Barbell Bench Press", "muscles": ["Chest", "Front shoulders", "Triceps"], "level": "Needs a spotter",
+      "plan": "3 sets of 8-10 reps. Start with the empty bar.",
+      "setup": [
+        "Lie on the bench with your eyes under the bar and your feet flat on the floor.",
+        "Grip the bar a little wider than your shoulders.",
+        "Ask someone to stand behind the bar (a spotter) for your first sets."
+      ],
+      "steps": [
+        "Lift the bar off the hooks and hold it above your chest with straight arms.",
+        "Lower the bar slowly to the middle of your chest.",
+        "Push the bar up until your arms are straight.",
+        "Put the bar back on the hooks when you finish."
+      ],
+      "mistakes": [
+        "Bouncing the bar off the chest.",
+        "Lifting the hips off the bench.",
+        "Half reps that do not reach the chest.",
+        "Elbows flared straight out to the sides."
+      ],
+      "safety": "Do not bench press alone with a heavy bar. Never use a thumbless grip.",
+      "camera": {"view": "side", "tip": "Put the phone at your side, 3 metres away, at bench height. Your arm must be visible. Plates can block the view, so this check is less exact."},
+      "beta": true,
+      "analysis": {
+        "type": "reps", "primary": "elbow", "start": "extended", "parts": ["shoulder", "elbow", "wrist"],
+        "checks": [
+          {"id": "rom_peak", "group": "range", "metric": "elbow", "stat": "at_peak", "good": 90, "bad": 120, "weight": 2.5,
+           "title": "Bar not lowered to the chest", "fix": "Lower the bar until it lightly touches the middle of your chest."},
+          {"id": "rom_start", "group": "range", "metric": "elbow", "stat": "at_start", "good": 155, "bad": 130, "weight": 1.5,
+           "title": "Arms not straight at the top", "fix": "Push until your arms are straight."},
+          {"id": "tempo", "group": "control", "metric": "duration", "stat": "rep", "good": 2.0, "bad": 1.0, "weight": 1.5,
+           "title": "Reps are too fast", "fix": "Lower for two seconds, push for one second."}
+        ]
+      }
+    },
+
+    "plank": {
+      "name": "Plank", "muscles": ["Core (stomach)", "Shoulders"], "level": "Beginner",
+      "plan": "3 holds of 20-30 seconds. Rest 30 seconds between holds.",
+      "setup": [
+        "Kneel on the mat and put your forearms on the floor, elbows under your shoulders.",
+        "Step your feet back one at a time until your legs are straight."
+      ],
+      "steps": [
+        "Make a straight line from your head to your heels.",
+        "Tighten your stomach and squeeze your glutes.",
+        "Look at the floor a little in front of your hands.",
+        "Breathe normally and hold."
+      ],
+      "mistakes": [
+        "Hips sagging towards the floor (low back).",
+        "Hips pushed up high (high back).",
+        "Holding the breath.",
+        "Looking up or forward."
+      ],
+      "safety": "Stop when your hips start to sag. A short good plank is better than a long bad one.",
+      "camera": {"view": "side", "tip": "Put the phone on the floor at your side, 2-3 metres away. Your whole body from head to feet must be in the picture."},
+      "analysis": {
+        "type": "hold", "primary": "body_line", "parts": ["shoulder", "hip", "knee", "ankle"],
+        "classifier": "plank_posture",
+        "checks": [
+          {"id": "hips_low", "group": "posture", "metric": "hip_offset", "stat": "mean", "good": -0.03, "bad": -0.10, "weight": 2,
+           "title": "Hips are sagging", "fix": "Lift your hips until your body is one straight line. Squeeze your glutes and stomach."},
+          {"id": "hips_high", "group": "posture", "metric": "hip_offset", "stat": "mean", "good": 0.05, "bad": 0.14, "weight": 2,
+           "title": "Hips are too high", "fix": "Lower your hips until your shoulders, hips and heels are in one line."},
+          {"id": "posture_model", "group": "posture", "metric": "classifier", "stat": "error_share", "good": 0.1, "bad": 0.6, "weight": 2,
+           "title": "Body line is not straight", "fix": "Keep your head, hips and heels in one straight line for the whole hold."},
+          {"id": "hold_time", "group": "control", "metric": "duration", "stat": "hold", "good": 20, "bad": 5, "weight": 1.5,
+           "title": "Hold is short", "fix": "Build up to a 20-30 second hold with good form."}
+        ]
+      }
+    },
+
+    "pec_deck_fly": {
+      "name": "Pec Deck Fly", "muscles": ["Chest"], "level": "Beginner",
+      "plan": "3 sets of 10-12 reps. Rest 60 seconds between sets.",
+      "setup": [
+        "Choose a light weight with the pin.",
+        "Adjust the seat so the handles are level with your chest.",
+        "Sit with your back flat on the pad."
+      ],
+      "steps": [
+        "Hold the handles with a small bend in your elbows.",
+        "Bring your hands together in front of your chest, like hugging a big tree.",
+        "Squeeze for one second.",
+        "Open your arms slowly until you feel a stretch in the chest. Do not go further back than your shoulders."
+      ],
+      "mistakes": [
+        "Opening the arms too far back.",
+        "Bending the elbows a lot so it becomes a press.",
+        "Shoulders rolling forward."
+      ],
+      "safety": "Do not let the handles pull your arms far behind your body.",
+      "camera": {"view": "front", "tip": "Form check is not ready for this machine yet."},
+      "analysis": null
+    },
+
+    "treadmill_walk": {
+      "name": "Treadmill Walk / Jog", "muscles": ["Heart and lungs", "Legs"], "level": "Beginner",
+      "plan": "10-20 minutes. Start with a walk at 4-5 km/h.",
+      "setup": [
+        "Stand on the side rails, not on the belt.",
+        "Clip the red safety key to your shirt.",
+        "Press Start. The belt begins slowly. Then step on."
+      ],
+      "steps": [
+        "Walk in the middle of the belt and look forward.",
+        "Raise the speed in small steps.",
+        "Swing your arms naturally. Do not hold the handrails all the time.",
+        "To finish, lower the speed, walk for two minutes, then press Stop and wait until the belt stops."
+      ],
+      "mistakes": [
+        "Looking down at your feet.",
+        "Holding the rails and leaning back.",
+        "Stepping off while the belt is moving."
+      ],
+      "safety": "Always use the safety key. Never jump on a moving belt.",
+      "camera": {"view": "side", "tip": "Form check is not ready for this machine yet."},
+      "analysis": null
+    },
+
+    "bike_ride": {
+      "name": "Exercise Bike", "muscles": ["Heart and lungs", "Legs"], "level": "Beginner",
+      "plan": "10-20 minutes at an easy effort where you can still talk.",
+      "setup": [
+        "Set the saddle to hip height when you stand next to the bike.",
+        "Sit and put your feet in the straps.",
+        "At the lowest point of the pedal, your knee should be slightly bent."
+      ],
+      "steps": [
+        "Start pedalling with low resistance.",
+        "Keep your back long and your shoulders relaxed.",
+        "Add resistance in small steps.",
+        "Finish with two easy minutes."
+      ],
+      "mistakes": [
+        "Saddle too low (knees come up very high).",
+        "Saddle too high (hips rock side to side).",
+        "Rounding the back and gripping the handles hard."
+      ],
+      "safety": "Stop pedalling slowly. On a spin bike the pedals keep turning.",
+      "camera": {"view": "side", "tip": "Form check is not ready for this machine yet."},
+      "analysis": null
+    },
+
+    "rowing": {
+      "name": "Rowing Machine", "muscles": ["Legs", "Back", "Heart and lungs"], "level": "Beginner",
+      "plan": "5-10 minutes at an easy pace. Focus on the order of the movement.",
+      "setup": [
+        "Sit on the seat and strap your feet in. The strap goes over the widest part of your foot.",
+        "Set the damper (the lever on the fan) to 3-5.",
+        "Hold the handle with both hands, arms straight."
+      ],
+      "steps": [
+        "Push with your legs first.",
+        "When your legs are almost straight, lean back a little.",
+        "Then pull the handle to your lower ribs.",
+        "Go back in the reverse order: arms, body, then legs."
+      ],
+      "mistakes": [
+        "Pulling with the arms before the legs push.",
+        "Rounding the back.",
+        "Leaning back too far at the end."
+      ],
+      "safety": "Keep your back straight. Do not let go of the handle while the fan is spinning.",
+      "camera": {"view": "side", "tip": "Form check is not ready for this machine yet."},
+      "analysis": null
+    }
+  }
+}

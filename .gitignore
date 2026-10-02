@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+data/uploads/
+data/jobs/
+data/cache/
+data/eval_machines/
+models/text_embeddings.npz

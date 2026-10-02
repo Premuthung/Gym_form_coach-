@@ -1,0 +1,10 @@
+{
+  "note": "Measured on 2026-10-02 with training/compare_image_text_models.py: 5 prompt templates, zero-shot, the 61 curated photos in data/eval_machines/curated.csv.",
+  "photos": 61,
+  "classes": 16,
+  "models": [
+    {"id": "openai/clip-vit-base-patch32", "label": "CLIP ViT-B/32 (OpenAI)", "top1": 0.508, "top3": 0.672},
+    {"id": "openai/clip-vit-base-patch16", "label": "CLIP ViT-B/16 (OpenAI)", "top1": 0.443, "top3": 0.705},
+    {"id": "google/siglip-base-patch16-224", "label": "SigLIP base (Google), chosen", "top1": 0.869, "top3": 0.967}
+  ]
+}

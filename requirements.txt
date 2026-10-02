@@ -1,0 +1,14 @@
+# Versions this prototype was built and tested with (Python 3.12, Windows 11, CPU only).
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+mediapipe==1.0.1          # pose model runtime (installs opencv-contrib-python)
+numpy==2.5.1
+pillow==12.3.0
+torch==2.13.0             # CPU build is enough
+transformers==5.17.0      # loads the image-text model (SigLIP)
+sentencepiece             # tokenizer used by SigLIP
+protobuf
+scikit-learn==1.9.1       # must match the version that saved models/*.joblib
+joblib
+pandas==3.0.5             # training scripts only

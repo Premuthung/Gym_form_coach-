@@ -1,0 +1,10 @@
+{
+  "name": "Gym Form Coach",
+  "short_name": "Form Coach",
+  "description": "Scan a gym machine, learn how to use it, and check your form from a video.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
