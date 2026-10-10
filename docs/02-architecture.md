@@ -111,5 +111,6 @@ about 20 lines of data. A trainer can review and correct the numbers without rea
 
 - Jobs are kept in memory. Restarting the server forgets them.
 - One video at a time. Fine for one tester, not for many users.
-- No login. Anyone on the same Wi-Fi can use it when started with `run.bat lan`.
+- No login. Anyone on the same Wi-Fi can use it when started with `run.bat lan`, and anyone who has
+  the link when started with `run.bat public`.
 - History is stored only in the browser.

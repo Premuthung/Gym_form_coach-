@@ -14,11 +14,18 @@
     <button id="back" class="icon-btn" aria-label="Back" hidden>←</button>
     <h1 id="title">Gym Form Coach</h1>
     <span id="status" class="status" title="Machine recogniser status"></span>
+    <button id="feedback-btn" class="chip-btn">💬 Feedback</button>
   </header>
 
   <!-- Each <section> is one screen. app.js shows one at a time. -->
   <main>
     <section id="screen-home" class="screen">
+      <div class="card test-note">
+        <b>Test version.</b> Try everything, then tap <b>Feedback</b> and tell us what worked and what did not. It takes one minute.
+      </div>
+      <div id="offline-note" class="card note" hidden>
+        <b>The checker is offline right now.</b> You can still read every guide. Scanning a machine and checking a video will work again when it is back.
+      </div>
       <p class="lead">New to the gym? Take a photo of any machine. We show you how to use it, then check your form from a short video.</p>
       <label class="btn primary big">
         📷 Scan a machine
@@ -35,6 +42,10 @@
       <div id="history-block" hidden>
         <h2>Your last checks</h2>
         <ul id="history" class="history"></ul>
+      </div>
+      <div id="apk-block" hidden>
+        <h2>Android app</h2>
+        <a class="btn ghost" href="GymFormCoach.apk">⬇ Get the Android app</a>
       </div>
       <p class="fine">This app gives general guidance. It is not medical advice. If something hurts, stop and ask a trainer.</p>
     </section>
@@ -57,8 +68,12 @@
         <div class="spinner" aria-hidden="true"></div>
         <h2 id="progress-stage">Uploading your video</h2>
         <div class="track"><div id="progress-fill" class="fill"></div></div>
-        <p class="fine">A 20-second video takes one to two minutes on this computer. Your upload is deleted when the check is finished; the review video we make is kept on this computer for one day.</p>
+        <p class="fine">A 20-second video takes one to two minutes. Keep this page open. If other people are testing at the same time, your video waits in line. Your upload is deleted when the check is finished; the review video we make is kept for one day.</p>
       </div>
+    </section>
+
+    <section id="screen-feedback" class="screen" hidden>
+      <div id="feedback-body"></div>
     </section>
 
     <section id="screen-result" class="screen" hidden>

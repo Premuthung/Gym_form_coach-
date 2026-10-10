@@ -150,6 +150,28 @@ a.btn { text-decoration: none; }
 .chart .band { fill: var(--brand); opacity: .1; }
 .chart text { fill: var(--muted); font-size: 11px; }
 
+.chip-btn {
+  border: 1px solid var(--line); background: none; color: var(--ink); white-space: nowrap;
+  font: inherit; font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 99px; cursor: pointer;
+}
+.chip-btn:focus-visible, .star:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.card.test-note { border-left: 4px solid var(--brand); font-size: 14px; }
+video.howto { width: 100%; max-height: 70vh; display: block; border-radius: 10px; background: var(--bg); aspect-ratio: 4 / 5; }
+.no-list { list-style: none; padding: 0; }
+.no-list li::before { content: "✕ "; color: var(--bad); font-weight: 700; }
+.stars { display: flex; gap: 4px; }
+.star {
+  flex: 1; min-height: 48px; border: 0; background: none; cursor: pointer; border-radius: 8px;
+  font-size: 34px; line-height: 1; color: var(--muted); opacity: .4;
+}
+.star[aria-pressed="true"] { opacity: 1; }
+.star[aria-pressed="true"] { color: var(--warn); }
+textarea, input[type="text"] {
+  display: block; width: 100%; margin-top: 12px; padding: 10px 12px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); font: inherit;
+}
+textarea { resize: vertical; }
+
 .history { list-style: none; padding: 0; }
 .history li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
 

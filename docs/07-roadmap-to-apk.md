@@ -1,8 +1,9 @@
 # 7. From this prototype to an Android APK
 
-**Status today:** a web app on your laptop, tested in a browser. **There is no APK yet.** This laptop has
-Java 17 and Node but no Android SDK, and an APK should not be built before the form rules are checked
-(step 1 below). This page is the plan to get there.
+**Status today:** a web app, plus a first APK by path A: `build-apk.bat` makes `GymFormCoach.apk`, a
+shell that shows the web app from a running server (see "Android app" in the README). It was built
+with the Android SDK tools directly, without Capacitor or Android Studio, and has not yet been tried
+on a phone. The form rules still need checking (step 1 below) before a wider release.
 
 ## Three ways to make the APK
 

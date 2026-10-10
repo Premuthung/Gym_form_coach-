@@ -24,6 +24,7 @@ demo only; the review video the app makes for a user is not blurred.
 
 | Update | What changed |
 |---|---|
+| **Ready for testers** | `run.bat public` gives a link that opens on any phone. Before uploading, testers see how to film (a 24-second animation plus do and do-not lists). A Feedback button on every screen saves ratings and comments to `data/feedback.csv`. |
 | **Review video for every upload** | After scoring, the app renders an MP4 of the user's own clip with the measured joint and angle drawn on it, beside a graph that draws itself, a rep counter, each rep's score and the final score. It plays on the result screen and can be saved. Works for upright exercises, lying or reclined ones (leg press, bench) and holds (plank). |
 | **Demo video** | The 26-second clip above, made with the same drawing code. |
 | **Tested on unseen internet clips** | 2 photos and 7 videos the app had never seen, with every result reported, including a missed "bad form" bench press and a false alarm on an animation. See "Tried on real gym photos and videos" below. |
@@ -39,7 +40,8 @@ demo only; the review video the app makes for a user is not blurred.
 
 The result screen also plays the review video under "Watch your set".
 
-It runs on a laptop and is used from a browser (also a phone browser on the same Wi-Fi). It is
+It runs on a laptop and is used from a browser: a phone on the same Wi-Fi, or any phone through a
+public test link (`run.bat public`). It is
 **not yet an Android APK**; the plan for that is in [docs/07-roadmap-to-apk.md](docs/07-roadmap-to-apk.md).
 
 ## How it works
@@ -182,6 +184,99 @@ a minute or two; guides and form checks work straight away.
 
 - **From a phone:** `run.bat lan`, then open `http://<your PC's IPv4 address>:8000` on the same Wi-Fi.
   Use this at home, not on public Wi-Fi.
+- **For testers anywhere:** `run.bat public`. See "Testing with real users" below.
+
+## Testing with real users
+
+`run.bat public` starts the app and opens a second window with a free Cloudflare tunnel. That window
+shows a link like `https://some-words.trycloudflare.com`. Send it to testers; it opens on any phone,
+on any network, with every feature (scan, guide, form check, review video).
+
+- The link works only while this computer is on and both windows stay open. It changes every time
+  you start it. There is no login: anyone who has the link can use the app.
+- Videos are checked one at a time. A tester who uploads while another video is running sees
+  "Waiting: 1 video ahead of yours".
+- Before uploading, testers see a 24-second animation of how to film (side view, whole body in the
+  picture, phone still) and a list of recordings that do not work. To change the animation, edit and
+  run `python training/make_filming_demo.py`.
+- Testers rate the app with the **Feedback** button on every screen and under every result. Each
+  answer is one row in `data/feedback.csv` (opens in Excel): time, stars, whether the result matched
+  what they did, comment, optional contact, exercise, score and reps.
+- The upload limit is 100 MB, which is also the most the tunnel lets through.
+
+## A permanent address on GitHub Pages
+
+The trycloudflare link changes every time `run.bat public` starts. The page itself is also published
+on GitHub Pages, at an address that never changes:
+
+**<https://premuthung.github.io/Gym_form_coach-/>**
+
+GitHub only serves files; it cannot run the server. So that page is a copy of `frontend/` with the
+machine guides inside it, and it calls the server on this computer for everything else:
+
+| | Server on (`run.bat public` running) | Server off |
+|---|---|---|
+| Read the guides | Yes | Yes |
+| Scan a machine, check a video, send feedback | Yes | No - the page says "The checker is offline right now" |
+
+`run.bat public` republishes the page by itself each time it starts, so the page always knows the
+current server link. This needs `git push` to work on this computer without asking for a password.
+`publish-pages.bat` does the same by hand. The published files live in the `gh-pages` branch.
+
+## Android app (APK)
+
+`build-apk.bat` makes `GymFormCoach.apk` (about 20 KB), a file you can send to testers by WhatsApp,
+email or Drive. They open it on an Android phone (8.0 or newer) and allow "install unknown apps".
+
+```
+build-apk.bat                                  the app asks for the server link when first opened
+build-apk.bat https://some-words.trycloudflare.com    the app opens that server straight away
+```
+
+**The APK is a shell around the web app, not a stand-alone app.** The pose model and the machine
+recogniser run on the server, so a server must be running while people use it: `run.bat public` on
+this computer, or a hosted copy. If the server cannot be reached, the app shows a box to type a new
+link. Running everything on the phone is path C in [docs/07-roadmap-to-apk.md](docs/07-roadmap-to-apk.md).
+
+What the app adds to the web page: "Scan a machine" and "Record a video" open the phone camera,
+"Upload" opens the file picker, "Save this video" saves to Downloads, and the phone's Back button
+works like the arrow in the page.
+
+- It is built without Android Studio or Gradle: `android/build-apk.ps1` calls the Android SDK tools
+  directly. It needs the SDK (`platforms;android-34`, `build-tools;34.0.0`) in
+  `%LOCALAPPDATA%\Android\Sdk` and Java 11 or newer.
+- The first build creates `android/gym-form-coach.keystore`. Keep it: a phone only installs an update
+  signed with the same key. Without it, testers must uninstall the old app first.
+- The APK is not in this repository and is not signed for the Play Store.
+
+## Put it on the internet (a normal web page)
+
+`run.bat public` needs this computer to stay on. To give the app a permanent address that opens like
+any web page, host it. The `Dockerfile` packs the page and the models into one container, and
+`deploy.bat` sends it to a [Hugging Face Space](https://huggingface.co/docs/hub/spaces). Hugging Face asks for a paid PRO subscription to host a Docker Space:
+
+```
+deploy.bat YOUR-HUGGING-FACE-NAME
+```
+
+1. Make an account at <https://huggingface.co/join> and an access token with the "Write" role at
+   <https://huggingface.co/settings/tokens>. The script asks for the token the first time.
+2. Run the command. It creates the Space `YOUR-NAME/gym-form-coach` and uploads the app. Hugging Face
+   builds it in about 10 minutes.
+3. The page is then at `https://YOUR-NAME-gym-form-coach.hf.space`. Run the same command again after
+   any change.
+
+What to know about the basic (cpu-basic) Space:
+
+- It is public: anyone with the address can use it.
+- It has 2 CPU cores, so a form check is slower than on a laptop. It goes to sleep after two days
+  without visitors and takes about a minute to wake up.
+- Its disk is emptied on every restart. To keep feedback, set the variable `GFC_FEEDBACK_REPO` and
+  the secret `HF_TOKEN` in the Space settings (the script prints the exact values). Feedback is then
+  copied every 5 minutes to a private dataset on your account.
+
+Any other host that runs a container works too: `docker build -t gym-form-coach .` then
+`docker run -p 7860:7860 gym-form-coach`.
 - **Try a form check without a gym:** Dumbbells > Check my form > Upload, and choose
   `Exercise-Correction-main\demo\bc_demo.mp4`.
 

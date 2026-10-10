@@ -3,5 +3,10 @@ __pycache__/
 data/uploads/
 data/jobs/
 data/cache/
+data/tools/
+data/feedback.csv
 data/eval_machines/
 models/text_embeddings.npz
+android/build/
+android/*.keystore
+*.apk
